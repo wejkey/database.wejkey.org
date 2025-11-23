@@ -1,0 +1,67 @@
+{
+  "versions": [
+    {
+      "version": "4.0",
+      "date": "November 20, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/wubx12If/Valentines_4.0.jar",
+      "description": "Check <a href=\"https://github.com/wejkey/Valentines/releases/tag/4.0\" target=\"_blank\">Github</a> for more info",
+      "failed": false
+    },
+    {
+      "version": "3.1",
+      "date": "October 1, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/HBHdxK6r/Valentines_3.1.0.jar",
+      "description": "Minor improvements and fixes",
+      "failed": false
+    },
+    {
+      "version": "3.0.2",
+      "date": "September 28, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/KdK7dPa6/Valentines_3.0.2.jar",
+      "description": "Bug fixes and stability improvements",
+      "failed": false
+    },
+    {
+      "version": "3.0.1",
+      "date": "September 24, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/fYYkGUHC/Valentines_3.0.1.jar",
+      "description": "Hotfix for critical issues",
+      "failed": false
+    },
+    {
+      "version": "3.0",
+      "date": "September 13, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/ucuyJkTo/Valentines_3.0.0.jar",
+      "description": "Major update with new features and improvements",
+      "failed": false
+    },
+    {
+      "version": "2.1",
+      "date": "May 17, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/NyIQGWNO/Valentines_2.1.jar",
+      "description": "-",
+      "failed": false
+    },
+    {
+      "version": "2.0-Experimental-2",
+      "date": "May 10, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/zmqo11gw/Valentines_2.0-Experimental-2.jar",
+      "description": "Experimental build - not recommended",
+      "failed": true
+    },
+    {
+      "version": "2.0-Experimental",
+      "date": "May 10, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/wrZzMCh9/Valentines_2.0-Experimental.jar",
+      "description": "Experimental build - not recommended",
+      "failed": true
+    },
+    {
+      "version": "1.4E",
+      "date": "May 3, 2025",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/DdzXfok3/Valentines_1.4.jar",
+      "description": "Legacy version",
+      "failed": false
+    }
+  ]
+}
