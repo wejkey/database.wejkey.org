@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "id": "valentines",
+      "name": "Valentines",
+      "description": "A powerful plugin for enhancing your workflow",
+      "version": "2.1.0",
+      "author": "Wejkey",
+      "category": "Productivity"
+    }
+  ]
+}
