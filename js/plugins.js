@@ -200,53 +200,86 @@ function parseMarkdown(markdown) {
 async function loadChangelog(pluginId) {
     try {
         const response = await fetch(`changelog.json`);
-        const data = await response.json();
         const changelogList = document.getElementById('changelog-list');
 
-        if (data.versions && data.versions.length > 0) {
-            changelogList.innerHTML = '';
-            data.versions.forEach(version => {
-                const item = document.createElement('div');
-                item.className = 'changelog-item';
-
-                if (version.failed) {
-                    item.classList.add('failed');
-                }
-
-                const statusIcon = version.failed ? '✗' : '✓';
-                const tooltip = version.failed ? 'Failed' : 'Success';
-                const versionInfo = `v${version.version} - ${version.date}`;
-                const description = version.description || 'No description available';
-
-                const statusDiv = document.createElement('div');
-                statusDiv.className = 'changelog-status';
-                statusDiv.textContent = statusIcon;
-                statusDiv.setAttribute('data-tooltip', tooltip);
-
-                item.appendChild(statusDiv);
-
-                const versionTagDiv = document.createElement('div');
-                versionTagDiv.className = 'version-tag';
-                versionTagDiv.textContent = versionInfo;
-                item.appendChild(versionTagDiv);
-
-                const descriptionDiv = document.createElement('div');
-                descriptionDiv.className = 'changelog-description';
-                descriptionDiv.innerHTML = description;
-                item.appendChild(descriptionDiv);
-
-                const downloadLink = document.createElement('a');
-                downloadLink.href = version.download;
-                downloadLink.className = 'changelog-download';
-                downloadLink.textContent = 'Download';
-                item.appendChild(downloadLink);
-
-                changelogList.appendChild(item);
-            });
+        if (!response.ok) {
+            const text = await response.text();
+            console.error('Changelog fetch failed:', response.status, response.statusText, text);
+            changelogList.innerHTML = '<p>Failed to load changelog (network error).</p>';
+            return;
         }
+
+        // Try to parse JSON, but guard against HTML error pages or invalid JSON
+        let data;
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+            data = await response.json();
+        } else {
+            const text = await response.text();
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.error('Expected JSON but got:', text.slice(0, 500));
+                changelogList.innerHTML = '<p>Failed to load changelog (invalid JSON).</p>';
+                return;
+            }
+        }
+
+        if (!data || !Array.isArray(data.versions)) {
+            console.error('Changelog JSON has unexpected shape:', data);
+            changelogList.innerHTML = '<p>No changelog available.</p>';
+            return;
+        }
+
+        if (data.versions.length === 0) {
+            changelogList.innerHTML = '<p>No changelog entries found.</p>';
+            return;
+        }
+
+        // Render entries
+        changelogList.innerHTML = '';
+        data.versions.forEach(version => {
+            const item = document.createElement('div');
+            item.className = 'changelog-item';
+
+            if (version.failed) {
+                item.classList.add('failed');
+            }
+
+            const statusIcon = version.failed ? '✗' : '✓';
+            const tooltip = version.failed ? 'Failed' : 'Success';
+            const versionInfo = `v${version.version} - ${version.date}`;
+            const description = version.description || 'No description available';
+
+            const statusDiv = document.createElement('div');
+            statusDiv.className = 'changelog-status';
+            statusDiv.textContent = statusIcon;
+            statusDiv.setAttribute('data-tooltip', tooltip);
+
+            item.appendChild(statusDiv);
+
+            const versionTagDiv = document.createElement('div');
+            versionTagDiv.className = 'version-tag';
+            versionTagDiv.textContent = versionInfo;
+            item.appendChild(versionTagDiv);
+
+            const descriptionDiv = document.createElement('div');
+            descriptionDiv.className = 'changelog-description';
+            descriptionDiv.innerHTML = description;
+            item.appendChild(descriptionDiv);
+
+            const downloadLink = document.createElement('a');
+            downloadLink.href = version.download;
+            downloadLink.className = 'changelog-download';
+            downloadLink.textContent = 'Download';
+            item.appendChild(downloadLink);
+
+            changelogList.appendChild(item);
+        });
     } catch (error) {
         console.error('Error loading changelog:', error);
-        document.getElementById('changelog-list').innerHTML = '<p>Failed to load changelog.</p>';
+        const el = document.getElementById('changelog-list');
+        if (el) el.innerHTML = '<p>Failed to load changelog.</p>';
     }
 }
 
