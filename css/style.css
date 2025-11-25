@@ -665,3 +665,98 @@ body {
         padding: 1.5rem;
     }
 }
+
+.license-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.license-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.license-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-hover);
+}
+
+.license-btn.active {
+    background: var(--primary-color);
+    color: var(--surface);
+    border-color: var(--primary-color);
+}
+
+#license-content {
+    line-height: 1.8;
+}
+
+#license-content h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+#license-content h1:first-child {
+    margin-top: 0;
+}
+
+#license-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.875rem;
+    color: var(--text-primary);
+}
+
+#license-content h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.625rem;
+    color: var(--text-primary);
+}
+
+#license-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+#license-content ul {
+    margin: 1rem 0 1rem 2rem;
+    list-style: disc outside;
+}
+
+#license-content li {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: 0.25rem;
+}
+
+#license-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+#license-content a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+#license-content strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}

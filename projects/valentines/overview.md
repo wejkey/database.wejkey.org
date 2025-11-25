@@ -1,6 +1,6 @@
 # Valentines
 
-**Original Valentines plugin. Everything in one.**  
+**Original Valentines plugin. Everything in one.**
 *Let your players be together!*
 
 ---

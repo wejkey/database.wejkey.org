@@ -44,8 +44,6 @@ function parseMarkdown(markdown) {
         return id;
     });
 
-    html = html.replace(/^---+$/gim, '<hr>');
-
     html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
 
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
@@ -66,6 +64,12 @@ function parseMarkdown(markdown) {
 
     while (i < lines.length) {
         const line = lines[i];
+
+        if (/^---+$/.test(line.trim())) {
+            processed.push('<hr>');
+            i++;
+            continue;
+        }
 
         if (/^\|(.+)\|$/.test(line.trim())) {
             const tableLines = [];
@@ -113,14 +117,20 @@ function parseMarkdown(markdown) {
 
         if (/^[\*\-] /.test(line.trim())) {
             const listLines = [];
-            let currentIndent = 0;
 
             while (i < lines.length) {
                 const currentLine = lines[i];
-                if (!/^[\s]*[\*\-] /.test(currentLine)) break;
+                if (!/^[\s]*[\*\-] /.test(currentLine)) {
+                    if (currentLine.trim() === '' || /^[\s]+/.test(currentLine)) {
+                        i++;
+                        continue;
+                    }
+                    break;
+                }
 
                 const indent = currentLine.search(/[\*\-]/);
-                listLines.push({ line: currentLine, indent: indent });
+                const text = currentLine.replace(/^[\s]*[\*\-]\s*/, '');
+                listLines.push({ text, indent });
                 i++;
             }
 
@@ -139,8 +149,7 @@ function parseMarkdown(markdown) {
                         continue;
                     }
 
-                    const text = item.line.replace(/^[\s]*[\*\-]\s*/, '');
-                    html += `<li>${text}</li>`;
+                    html += `<li>${item.text}</li>`;
                     idx++;
                 }
 
@@ -172,18 +181,41 @@ function parseMarkdown(markdown) {
             continue;
         }
 
+        if (line.trim() === '') {
+            processed.push('');
+            i++;
+            continue;
+        }
+
         processed.push(line);
         i++;
     }
 
     html = processed.join('\n');
 
-    html = html.split('\n\n').map(para => {
-        if (!para.startsWith('<') && para.trim() !== '') {
-            return '<p>' + para + '</p>';
+    html = html.replace(/\n{2,}/g, '\n\n');
+
+    const blocks = html.split('\n\n');
+    const wrappedBlocks = blocks.map(block => {
+        block = block.trim();
+        if (block === '') return '';
+
+        if (block.startsWith('<h') || block.startsWith('<ul') ||
+            block.startsWith('<ol') || block.startsWith('<table') ||
+            block.startsWith('<pre') || block.startsWith('<hr') ||
+            block.startsWith('<img') || block.startsWith('<details')) {
+            return block;
         }
-        return para;
-    }).join('\n');
+
+        const singleLineBreaks = block.split('\n');
+        if (singleLineBreaks.length > 1) {
+            return '<p>' + singleLineBreaks.join('<br>') + '</p>';
+        }
+
+        return '<p>' + block + '</p>';
+    });
+
+    html = wrappedBlocks.join('\n\n');
 
     codeBlocks.forEach((b, idx) => {
         const escaped = b.code
@@ -209,7 +241,6 @@ async function loadChangelog(pluginId) {
             return;
         }
 
-        // Try to parse JSON, but guard against HTML error pages or invalid JSON
         let data;
         const contentType = response.headers.get('content-type') || '';
         if (contentType.includes('application/json')) {
@@ -236,7 +267,6 @@ async function loadChangelog(pluginId) {
             return;
         }
 
-        // Render entries
         changelogList.innerHTML = '';
         data.versions.forEach(version => {
             const item = document.createElement('div');

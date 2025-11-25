@@ -141,6 +141,17 @@
     color: var(--text-tertiary);
     text-align: center;
     font-weight: 500;
+    margin: 0.25rem 0;
+}
+
+.sidebar-footer a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    transition: color var(--transition);
+}
+
+.sidebar-footer a:hover {
+    color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

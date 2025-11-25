@@ -1,0 +1,11 @@
+{
+  "versions": [
+    {
+      "version": "1.0",
+      "date": "November 25, 2025",
+      "download": "https://github.com/wejkey/RawJar/releases/download/Calendar365/calendar365_1.0.jar",
+      "description": "First version",
+      "failed": false
+    }
+  ]
+}

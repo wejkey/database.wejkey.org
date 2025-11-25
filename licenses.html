@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PMT -->
+    <title>Wejkey Database - Licenses</title>
+    <meta name="title" content="Wejkey Database - Licenses">
+    <meta name="description" content="Third-party licenses and attributions for Wejkey Database.">
+    <meta name="keywords" content="licenses, attributions, third-party, legal">
+    <meta name="author" content="Wejkey">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- OG -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://database.wejkey.org/licenses.html">
+    <meta property="og:title" content="Wejkey Database - Licenses">
+    <meta property="og:description" content="Third-party licenses and attributions for Wejkey Database.">
+    <meta property="og:image" content="https://database.wejkey.org/images/favicon.png">
+    <meta property="og:site_name" content="Wejkey Database">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://database.wejkey.org/licenses.html">
+    <meta property="twitter:title" content="Wejkey Database - Licenses">
+    <meta property="twitter:description" content="Third-party licenses and attributions for Wejkey Database.">
+    <meta property="twitter:image" content="https://database.wejkey.org/images/favicon.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://database.wejkey.org/licenses.html">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-back">
+                <a href="https://wejkey.org">Back to Homepage</a>
+            </div>
+
+            <div class="sidebar-header">
+                <h2>Wejkey Database</h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-category">
+                    <h3>Home</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-category">
+                    <h3>Projects</h3>
+                    <ul id="projects-list">
+                        <li><a href="/projects/valentines/index.html">Valentines</a></li>
+                    </ul>
+                    <ul id="projects-list">
+                        <li><a href="/projects/calendar365/index.html">Calendar365</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <p>&copy; 2025 Wejkey. All rights reserved.</p>
+            <p><a href="licenses.html">Important</a></p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Licenses</h1>
+                <p>Third-party licenses and attributions</p>
+            </div>
+
+            <section class="content-section">
+                <div id="license-content" class="content-block"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function parseMarkdown(markdown) {
+            const blocks = markdown.split(/\n\n+/);
+
+            const result = blocks.map(block => {
+                block = block.trim();
+                if (!block) return '';
+
+                if (block.match(/^# /)) {
+                    return block.replace(/^# (.*?)$/m, '<h1>$1</h1>');
+                }
+                if (block.match(/^## /)) {
+                    return block.replace(/^## (.*?)$/m, '<h2>$1</h2>');
+                }
+                if (block.match(/^### /)) {
+                    return block.replace(/^### (.*?)$/m, '<h3>$1</h3>');
+                }
+
+                if (block.match(/^[\*\-] /)) {
+                    const listItems = block.split('\n').map(line => {
+                        const cleanLine = line.replace(/^[\*\-]\s+/, '').trim();
+                        return '<li>' + cleanLine + '</li>';
+                    }).join('');
+                    return '<ul>' + listItems + '</ul>';
+                }
+
+                if (block === '---') {
+                    return '<hr>';
+                }
+
+                let html = block;
+                html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+                html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+                html = html.replace(/\n/g, '<br>');
+
+                return '<p>' + html + '</p>';
+            }).filter(b => b);
+
+            return result.join('\n');
+        }
+
+        fetch('licenses/wmpdl.md')
+            .then(response => response.text())
+            .then(markdown => {
+                document.getElementById('license-content').innerHTML = parseMarkdown(markdown);
+            })
+            .catch(error => {
+                document.getElementById('license-content').innerHTML = '<p>Error loading license content.</p>';
+            });
+    </script>
+</body>
+</html>
