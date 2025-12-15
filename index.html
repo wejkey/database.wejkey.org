@@ -1,190 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maintenance</title>
 
-    <title>Wejkey Database - Home</title>
-    <meta name="title" content="Wejkey Database - Homepage">
-    <meta name="description" content="Database of (almost-all) my projects with detailed documentation, version history, and downloads.">
-    <meta name="keywords" content="Minecraft plugins, free plugins, downloads, server resources, Wejkey, database, documentation, projects">
-    <meta name="author" content="Wejkey">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f6fa;
+      --panel: #ffffff;
+      --primary: #2e5aac;
+      --muted: #5c6f82;
+    }
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://database.wejkey.org/">
-    <meta property="og:title" content="Wejkey Database - Homepage">
-    <meta property="og:description" content="Database of (almost-all) my projects with detailed documentation, version history, and downloads.">
-    <meta property="og:image" content="https://database.wejkey.org/images/favicon.png">
-    <meta property="og:site_name" content="Wejkey Database">
-    <meta property="og:locale" content="en_US">
-        
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://database.wejkey.org/">
-    <meta property="twitter:title" content="Wejkey Database - Homepage">
-    <meta property="twitter:description" content="Database of (almost-all) my projects with detailed documentation, version history, and downloads.">
-    <meta property="twitter:image" content="https://database.wejkey.org/images/favicon.png">
+    * {
+      box-sizing: border-box;
+    }
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #f9fbff, #eef2f9);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #0f172a;
+      overflow: hidden;
+    }
 
-    <link rel="canonical" href="https://database.wejkey.org/">
+    .panel {
+      background: var(--panel);
+      padding: 32px;
+      width: min(640px, 90vw);
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(46, 90, 172, 0.1), 0 12px 40px rgba(15, 23, 42, 0.12);
+    }
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sidebar.css">
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(46, 90, 172, 0.08);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 6px 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .meta {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .meta div {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(46, 90, 172, 0.06);
+      color: #1e293b;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+
+    .redirectback {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+      box-shadow: 0 12px 30px rgba(46, 90, 172, 0.25);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(46, 90, 172, 0.28);
+    }
+
+    @media (max-width: 520px) {
+      .panel {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-content">
-            <div class="sidebar-back">
-                <a href="https://wejkey.org">Back to Homepage</a>
-            </div>
+  <main class="panel" role="main">
+    <div class="eyebrow">503 - Temporarily Unavailable</div>
+    <h1>Reconstruction</h1>
 
-            <div class="sidebar-header">
-                <h2>Wejkey Database</h2>
-            </div>
-
-            <nav class="sidebar-nav">
-                <div class="nav-category">
-                    <h3>Home</h3>
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                    </ul>
-                </div>
-
-                <div class="nav-category">
-                    <h3>Minecraft Plugins</h3>
-                    <ul id="projects-list">
-                        <li><a href="/projects/valentines/index.html">Valentines</a></li>
-                    </ul>
-                    <ul id="projects-list">
-                        <li><a href="/projects/calendar365/index.html">Calendar365</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-        <div class="sidebar-footer">
-            <p>&copy; 2025 Wejkey. All rights reserved.</p>
-            <p><a href="licenses.html">Important</a></p>
-        </div>
+    <div class="meta">
+      <div><b>Why:</b> Redesigning</div>
+      <div><b>Started:</b> December 15, 2025 - 22:23 UTC</div>
+      <div><b>Ends:</b> December 19, 2025 - 22:00 UTC (estimated)</div>
     </div>
 
-    <div class="main-content">
-        <div class="container">
-            <header class="hero-section">
-                <div class="hero-content">
-                    <div class="hero-badge">v1.0.5-beta</div>
-                    <h1 class="hero-title">Wejkey Database</h1>
-                    <p class="hero-description">Database of (almost-all) my projects with detailed documentation, version history, and downloads.</p>
-                </div>
-            </header>
-
-            <section class="featured-projects">
-                <div class="section-header">
-                    <h2>Minecraft Plugins</h2>
-                    <p>Browse available plugins</p>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-icon">❤</div>
-                        <h3>Valentines</h3>
-                        <p>For the in-love ones or servers that want some fun plugin.</p>
-                        <div class="project-meta">
-                            <span class="meta-tag">v4.0</span>
-                            <span class="meta-tag">Minecraft</span>
-                        </div>
-                        <a href="/projects/valentines/index.html" class="btn-primary">View Details</a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-icon">📅</div>
-                        <h3>Calendar365</h3>
-                        <p>If you're lazy, you can use this plugin to check the calendar.</p>
-                        <div class="project-meta">
-                            <span class="meta-tag">v1.0</span>
-                            <span class="meta-tag">Minecraft</span>
-                        </div>
-                        <a href="/projects/calendar365/index.html" class="btn-primary">View Details</a>
-                    </div>
-                </div>
-            </section>
-            
-
-            <section class="faq-section">
-                <div class="section-header">
-                    <h2>Frequently Asked Questions</h2>
-                    <p>Common questions about the database</p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>What is Wejkey Database?</h3>
-                            <span class="faq-toggle">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Wejkey Database is a repository for all my projects. (Created primarly for Minecraft plugins) Detailed documentation, version history, changelogs, screenshots, and direct download links for each project/plugin (if any).</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Does this database have a higher priority?</h3>
-                            <span class="faq-toggle">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, when an update is released for a project, this database is updated first and only then are the other sites.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Where can I report bugs or request features?</h3>
-                            <span class="faq-toggle">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>For now, this is only possible at <a href="mailto:contact@wejkey.org">contact@wejkey.org</a>. (TIP: If you dont want to use your real email, use temporary email address)</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>What does "Beta" mean?</h3>
-                            <span class="faq-toggle">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>The database itself is in beta, meaning the website is still being refined and new features are being added.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="info-section">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Quick Access</h3>
-                        <p>Use the sidebar to quickly navigate between different projects and return to this homepage anytime.<br><b>TIP</b>: use "View as on desktop" on mobile, because sidebar is not on all screen sizes (yet)!</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Complete History</h3>
-                        <p>Every version of each project/plugin is archived and available for download with detailed changelogs.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Visual Gallery</h3>
-                        <p>Check screenshots and preview features before downloading to see exactly what you're getting.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
+    <div class="redirectback">
+      <a class="button" href="https://wejkey.org" id="redirect">Return to Homepage</a>
     </div>
+  </main>
 
-    <script src="js/main.js"></script>
-    <script>
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
-    </script>
 </body>
 </html>
