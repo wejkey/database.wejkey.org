@@ -78,11 +78,21 @@
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">DB Version</div>
-                            <div class="stat-value">v2026+1.0.0-beta.1</div>
+                            <div class="stat-value">v2026+1.0.0</div>
                         </div>
                     </div>
                 </div>
             </header>
+
+            <div class="dev-paused" role="status" aria-live="polite">
+                <div class="dev-paused-content">
+                    <div class="dev-paused-icon" aria-hidden="true">!</div>
+                    <div class="dev-paused-text">
+                        <strong>Development paused</strong>
+                        <p>Development of this site is paused because of new project <a style="text-decoration: none; color: rgb(66, 74, 225);" href="https://preminent.net">Preminent.net</a>.</p>
+                    </div>
+                </div>
+            </div>
 
             <section class="content-section">
                 <div class="section-header">
@@ -173,6 +183,13 @@
             q.addEventListener('click', () => {
                 q.parentElement.classList.toggle('active');
             });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.dev-paused-close')) {
+                const el = e.target.closest('.dev-paused');
+                if (el) el.remove();
+            }
         });
     </script>
 </body>
