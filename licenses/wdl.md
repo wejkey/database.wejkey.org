@@ -49,6 +49,6 @@ Email: contact@wejkey.org
 ---
 
 ## Wejkey Development License (1.0)
-Copyright © 2025 Wejkey
+Copyright © 2026 Wejkey
     
 Permission is granted, free of charge, to use any project developed by Wejkey on personal or commercial environments. You may modify the project for private use only. Any use, reference, or mention of the project must include clear credit to Wejkey as the original developer. You may not publicly release, distribute, sell, sublicense, or claim the project or any modified version as your own work, nor remove or alter author credits. All projects are provided “as is”, without warranty of any kind. The developer is not responsible for any damages, losses, or issues caused by the use, modification, or distribution of any project, including but not limited to crashes, data loss, or incompatibilities. Use of any project signifies acceptance of these terms.
