@@ -1,5 +1,13 @@
 {
   "versions": [
+      {
+      "version": "2026+1.1",
+      "date": "December 31, 2025",
+      "download": "https://cdn.modrinth.com/data/tNrGF59b/versions/8LvWhI9b/calendar365_2026%2B1.1.jar",
+      "description": "Changed versioning",
+      "status": "stable",
+      "support": "1.18 - 1.21.10"
+    },
     {
       "version": "1.1",
       "date": "December 19, 2025",

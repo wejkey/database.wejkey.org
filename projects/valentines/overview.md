@@ -36,7 +36,7 @@ Section "**Gallery**"
   <summary><strong>config.yml</strong></summary>
 
 ```yaml
-config-version: 4.0
+config-version: 2026+4.0
 
 Prefix: "&d&lValentines &7»&r "
 
@@ -151,7 +151,7 @@ NoPermissionMessage: "&cYou do not have permission to use this command."
 
 ```yaml
 plugin:
-  enabled: "&aValentines v4.0 has been enabled!"
+  enabled: "&aValentines v2026+4.0 has been enabled!"
   disabled: "&cValentines plugin has been disabled."
   reload: "&aValentines plugin has been reloaded successfully!"
   update-available: "&e⚡ A new version of Valentines is available! Check SpigotMC!"
