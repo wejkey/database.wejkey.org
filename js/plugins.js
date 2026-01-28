@@ -98,7 +98,7 @@ async function loadChangelog() {
             entry.innerHTML = `
                 <div class="entry-version">${version.version}</div>
                 <div class="entry-filename">${filename}</div>
-                <div class="entry-description">${version.description || 'No description available'}</div>
+                <div class="entry-description">${version.description || ''}</div>
                 <div class="entry-date">${version.date || 'Date pending'}</div>
             `;
 
