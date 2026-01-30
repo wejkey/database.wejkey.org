@@ -7,11 +7,11 @@
 
 ## Features
 - GUI: Keep it simple with only `/vgui` command
-- Marriages: Marry your favourite person
-- Achievements: 14 default achievements you unlock
-- Kisses, hugs, likes: Yes, it is there
-- Mood: Set your mood. Are you happy? Are you sad? Or neutral
-- Effects: Around player
+- Marriages: Marry your favorite person
+- Achievements: Achievements you unlock while playing
+- Mood: 5 types of mood
+- Effects: Look better with effects around you
+- Kiss, Hug, Like: Default valentines options
 
 ---
 
@@ -36,68 +36,173 @@ Section "**Gallery**"
   <summary><strong>config.yml</strong></summary>
 
 ```yaml
-config-version: 2026+4.0
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                     VALENTINES PLUGIN CONFIG                       ║
+# ║                     Update: January 30, 2025                       ║
+# ╚════════════════════════════════════════════════════════════════════╝
 
+# Internal version tracking - DO NOT CHANGE THIS VALUE
+config-version: "2026+1.0-dev.1"
+
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                          GENERAL SETTINGS                          ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
+# Displayed before all plugin messages in chat
 Prefix: "&d&lValentines &7»&r "
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                       CHAT SYMBOL REPLACEMENT                      ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
+# Enable automatic replacement of specified words with a custom symbol in chat
+# When true, words listed below will be replaced with the symbol when typed
 symbol-change: true
+
+# Changes color of symbol
 symbol-color: "&c"
+
+# The actual symbol that will replace the words
+# Unicode symbols are supported
 symbol: "♥"
+
+# List of words that will be replaced with the symbol in player chat
 words:
   - "love"
   - "valentines"
   - "heart"
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                      PARTICLE EFFECT SETTINGS                      ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
+# Global particle effect configuration for players
 effect:
+  # Enables/disables effects
   enabled: true
+
+  # Number of particles spawned per effect tick (higher = more particles, more lag)
   particle-density: 2
+
+  # How often effects update in ticks (20 ticks = 1 second)
   update-rate: 3
+
+  # Maximum height particles can reach above player (in blocks)
   max-height: 2.5
+
+  # Starting height of particles above player's feet (in blocks)
   start-height: 0.1
+
+  # Horizontal radius of particle effects (in blocks)
   radius: 1.0
 
-player-effects: true
+# Enable/disable specific action particle effects
+# These show when players use commands like /kiss, /hug, or get married
 kiss-effect: true
 marriage-effect: true
 hug-effect: true
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                           WORLD SETTINGS                           ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
+# List of worlds where the plugin features are active
 enabled-worlds:
   - "world"
   - "world_nether"
   - "world_the_end"
 
-disabled-worlds: []
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                          COOLDOWN SETTINGS                         ║
+# ╚════════════════════════════════════════════════════════════════════╝
 
+# Cooldowns prevent spam and add meaningful weight to actions
 cooldowns:
+  # How long players must wait between hugging others
+  # Value is in SECONDS
   hug: 45
+
+  # How long players must wait between kissing others
+  # Value is in SECONDS
   kiss: 60
+
+  # How long players must wait between liking different players
+  # Value is in SECONDS
+  # Note: Experimental function
   like: 240
+
+  # How long players must wait between changing their mood status
+  # Value is in SECONDS
   mood-change: 120
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                      MARRIAGE SYSTEM SETTINGS                      ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
 marriage:
+  # How long a marriage proposal stays valid before expiring
+  # Value is in SECONDS
   proposal-timeout: 45
+
+  # Cooldown between sending marriage proposals
+  # Value is in SECONDS
   proposal-cooldown: 30
+
+  # Whether players must type /marry confirm to accept proposals
+  # If false, proposals are instantly accepted
   require-confirmation: true
+
+  # Broadcast marriage announcements to the entire server
+  # Shows "{Player1} and {Player2} just got married!"
   announcement: true
+
+  # Require players to type /divorce confirm before divorcing
+  # Adds safety against accidental divorces
   divorce-confirmation: true
+
+  # Cooldown after divorce before player can marry again
+  # Prevents instant remarrying after divorce
+  # Value is in SECONDS
   divorce-cooldown: 600
-  marriage-benefits:
-    shared-effects: true
-    mood-sharing: true
-    teleport-to-partner: true
-    private-chat: true
+
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║              ANNIVERSARY SYSTEM SETTINGS (EXPERIMENTAL)            ║
+# ╚════════════════════════════════════════════════════════════════════╝
 
 anniversary:
+  # Checks marriages and announces anniversaries when dates match
   enabled: true
+
+  # Who sees anniversary announcements
+  # Options: "global" (everyone), "couple" (only the married pair), "world" (specific worlds)
   announcement-type: "global"
+
+  # If announcement-type is "world", specify which worlds see announcements
   announcement-worlds:
     - "world"
+
+  # How often to check for anniversaries
+  # Value is in SECONDS
   check-interval: 300
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                         MOOD SYSTEM SETTINGS                       ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
 mood:
+  # Enable the mood system allowing players to set their emotional state
   enabled: true
+
+  # Require players to be married before they can set/share moods
+  # If true, only married players can use /mood command
   require-marriage: false
+
+  # Notify partner when player changes their mood
+  # Partner receives message like "Your partner is now feeling: Happy"
   partner-notifications: true
+
+  # Available mood types players can select
+  # These appear in the mood GUI and /mood command
   mood-types:
     - "very-good"
     - "good"
@@ -105,44 +210,71 @@ mood:
     - "bad"
     - "very-bad"
 
-gui:
-  update-interval: 15
-  items-per-page: 28
-  animated-items: true
-  sound-effects: true
-  custom-textures: false
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                        LEADERBOARD SETTINGS                        ║
+# ╚════════════════════════════════════════════════════════════════════╝
 
 leaderboard:
+  # Enable the love leaderboard showing top players by hugs/kisses/likes
   enabled: true
-  update-interval: 600
-  max-entries: 50
-  categories:
-    - "total-score"
-    - "hugs"
-    - "kisses"
-    - "likes"
-    - "marriages"
+
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                PERFORMANCE MONITORING (EXPERIMENTAL)               ║
+# ╚════════════════════════════════════════════════════════════════════╝
 
 performance:
+  # Enable performance monitoring and memory usage tracking
+  # Monitors plugin resource usage and warns about high memory consumption
   monitoring-enabled: true
+
+  # How often to check performance metrics
+  # Value is in SECONDS
   monitor-interval: 300
+
+  # Log detailed performance metrics to console
+  # Shows commands executed, effects rendered, GUI opens, etc.
   detailed-logging: false
+
+  # Memory usage threshold (%) that triggers warnings
+  # When memory usage exceeds this, plugin suggests garbage collection
   memory-threshold: 85
 
-debug: false
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                          DATA MANAGEMENT                           ║
+# ╚════════════════════════════════════════════════════════════════════╝
 
+# How often to automatically save all player data to disk
+# Lower = more frequent saves
+# Value is in MINUTES
 auto-save: 30
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                           UPDATE CHECKER                           ║
+# ╚════════════════════════════════════════════════════════════════════╝
+
 update-checker:
+  # Check GitHub for new plugin versions on startup and periodically
+  # Notifies ops when updates are available
   enabled: true
+
+  # How often to check for updates
+  # Value is in HOURS
   check-interval: 24
 
+# ╔════════════════════════════════════════════════════════════════════╗
+# ║                         ACHIEVEMENT SYSTEM                         ║
+# ╚════════════════════════════════════════════════════════════════════╝
 achievements:
+  # Enable the achievement system for tracking player milestones
+  # Includes first kiss, first hug, marriage, reaching 10 hugs/kisses, etc.
   enabled: true
-  broadcast: true
-  sound-enabled: true
 
-NoPermissionMessage: "&cYou do not have permission to use this command."
+  # Broadcast achievement unlocks to all players on the server
+  broadcast: true
+
+  # Play a sound effect when player unlocks an achievement
+  # Uses Minecraft's UI_TOAST_CHALLENGE_COMPLETE sound
+  sound-enabled: true
 ```
 </details>
 
@@ -151,10 +283,7 @@ NoPermissionMessage: "&cYou do not have permission to use this command."
 
 ```yaml
 plugin:
-  enabled: "&aValentines v4.0 has been enabled!"
-  disabled: "&cValentines plugin has been disabled."
   reload: "&aValentines plugin has been reloaded successfully!"
-  update-available: "&e⚡ A new version of Valentines is available! Check SpigotMC!"
 
 general:
   no-permission: "&cYou don't have permission to use this command!"
@@ -167,15 +296,7 @@ general:
 
 help:
   header: "&d❤ &5VALENTINES COMMANDS &d❤"
-  valentines: "&d/valentines &f- Display help and plugin info"
-  valentines-reload: "&d/valentines reload &f- Reload the plugin &7(Admin)"
   gui: "&d/vgui &f- Opens GUI"
-  hug: "&d/hug <player> &f- Hug someone"
-  kiss: "&d/kiss <player> &f- Kiss someone"
-  like: "&d/like <player> &f- Like someone"
-  marry: "&d/marry <player> &f- Propose"
-  divorce: "&d/divorce &f- Divorce"
-  mood: "&d/mood <mood> &f- Set your current mood"
 
 hug:
   usage: "&cUsage: &d/hug <player>"
@@ -263,7 +384,7 @@ marriages:
 
 player-search:
   prompt: "&fPlease type the name of the player you want to search for:"
-  not-found: "&c❌layer '{player}' not found or is not online!"
+  not-found: "&cPlayer '{player}' not found or is not online!"
   searching: "&fSearching for player: &d{player}&f..."
 
 gui:
@@ -393,18 +514,7 @@ gui:
   effect-disabled: "&cDisabled"
 
   back-button: "&c⬅ Back"
-  prev-page-button: "&a⬅ Previous Page"
-  next-page-button: "&a➡ Next Page"
-  page-info: "&fPage &d{current}&f/&d{total}"
   close-button: "&cClose Menu"
-
-sounds:
-  hug: "ENTITY_PLAYER_LEVELUP"
-  kiss: "ENTITY_EXPERIENCE_ORB_PICKUP"
-  like: "ENTITY_VILLAGER_YES"
-  marry: "ENTITY_FIREWORK_ROCKET_LAUNCH"
-  divorce: "ENTITY_VILLAGER_NO"
-  mood-change: "BLOCK_NOTE_BLOCK_CHIME"
 
 achievements:
   unlocked: "&a&Achievement Unlocked! &d{achievement}"
@@ -432,20 +542,6 @@ achievements:
   <summary><strong>playerdata.yml</strong></summary>
 
 ```yaml
-players:
-  (UUID):
-    name: (playername)
-    hugs: 0
-    kisses: 0
-    likes: 0
-    hugs-given: 0
-    kisses-given: 0
-    likes-given: 0
-    effect-type: heart
-    effect-enabled: true
-    mood: unknown
-    last-seen: (time)
-    achievements: []
 ```
 </details>
 
@@ -453,6 +549,5 @@ players:
   <summary><strong>proposals.yml</strong></summary>
 
 ```yaml
-proposals: {}
 ```
 </details>

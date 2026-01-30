@@ -1,86 +1,101 @@
 {
   "versions": [
     {
-      "version": "2026+4.0",
-      "name": "Valentines 2026+4.0",
+      "version": "2026+1.0-dev.1",
+      "name": "1.19, 1.20.x, 1.21.x",
+      "date": "January 30, 2026",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/78KZaWQi/Valentines_2026%2B1.0-dev.1.jar",
+      "description": [
+        "Removed unseen duplicate imports",
+        "Updated config and added comments to language file",
+        "Removed commands from '/help' except '/vgui'",
+        "Added backup data file that works if main file gets corrupted",
+        "Implemented memory usage optimizations",
+        "Updated versioning system. Year+Major.minor-status.build",
+        "Created custom events (achievements) system for better stability",
+        "Fixed achievements",
+        "Added 1.19.x support"
+      ],
+      "status": "dev"
+    },
+    {
+      "version": "2026+nv",
+      "name": "1.20.x, 1.21.x",
       "date": "December 31, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/wo4CZv0n/Valentines_2026%2B4.0.jar",
       "description": "Changed versioning",
-      "status": "stable",
-      "support": "1.20 - 1.21.11"
+      "status": "legacy"
     },
     {
       "version": "4.0",
-      "name": "Valentines v4.0",
+      "name": "1.20.x, 1.21.x",
       "date": "November 20, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/wubx12If/Valentines_4.0.jar",
       "description": "",
-      "status": "stable",
-      "support": "1.20 - 1.21.10"
+      "status": "legacy"
     },
     {
       "version": "3.1",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "October 1, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/HBHdxK6r/Valentines_3.1.0.jar",
       "description": "",
-      "status": "stable",
-      "support": "1.19 - 1.21.9"
+      "status": "legacy"
     },
     {
       "version": "3.0.2",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "September 28, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/KdK7dPa6/Valentines_3.0.2.jar",
       "description": "",
-      "status": "stable",
-      "support": "1.19 - 1.21.8"
+      "status": "legacy"
     },
     {
       "version": "3.0.1",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "September 24, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/fYYkGUHC/Valentines_3.0.1.jar",
       "description": "",
-      "status": "stable",
-      "support": "1.19 - 1.21.8"
-    },
+      "status": "legacy"
+      },
     {
       "version": "3.0",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "September 13, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/ucuyJkTo/Valentines_3.0.0.jar",
       "description": "",
-      "status": "stable",
-      "support": "1.19 - 1.21.8"
+      "status": "legacy"
     },
     {
       "version": "2.1",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "May 17, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/NyIQGWNO/Valentines_2.1.jar",
       "description": "Auto check for updates",
-      "status": "legacy",
-      "support": "1.19 - 1.21.8"
+      "status": "legacy"
     },
     {
       "version": "2.0-Experimental-2",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "May 10, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/zmqo11gw/Valentines_2.0-Experimental-2.jar",
       "description": "",
-      "status": "legacy",
-      "support": "1.19 - 1.21.8"
+      "status": "legacy"
     },
     {
       "version": "2.0-Experimental",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "date": "May 10, 2025",
       "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/wrZzMCh9/Valentines_2.0-Experimental.jar",
       "description": "",
-      "status": "legacy",
-      "support": "1.19 - 1.21.8"
+      "status": "legacy"
     },
     {
       "version": "1.4E",
       "date": "May 3, 2025",
-      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/DdzXfok3/Valentines_1.4.jar",
+      "name": "1.19.x, 1.20.x, 1.21.x",
       "description": "",
-      "status": "legacy",
-      "support": "1.19 - 1.21.8"
+      "status": "legacy"
     }
   ]
 }

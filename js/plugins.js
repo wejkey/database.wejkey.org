@@ -78,11 +78,8 @@ async function loadChangelog() {
 
         const statusClass = {
             stable: 'status-stable',
-            experimental: 'status-development',
-            development: 'status-development',
-            failed: 'status-unstable',
+            dev: 'status-dev',
             unstable: 'status-unstable',
-            error: 'status-unstable',
             legacy: 'status-legacy'
         };
 
@@ -91,6 +88,13 @@ async function loadChangelog() {
             const status = (version.status || (version.failed ? 'failed' : 'stable')).toLowerCase();
             const filename = version.name || version.download.split('/').pop();
 
+            let descriptionHtml = '';
+            if (Array.isArray(version.description)) {
+                descriptionHtml = version.description.map(line => `<div>${line}</div>`).join('');
+            } else if (typeof version.description === 'string') {
+                descriptionHtml = version.description.split(/\r?\n/).map(line => `<div>${line}</div>`).join('');
+            }
+
             const entry = document.createElement('a');
             entry.href = version.download;
             entry.className = `changelog-entry ${statusClass[status] || 'status-stable'}`.trim();
@@ -98,7 +102,7 @@ async function loadChangelog() {
             entry.innerHTML = `
                 <div class="entry-version">${version.version}</div>
                 <div class="entry-filename">${filename}</div>
-                <div class="entry-description">${version.description || ''}</div>
+                <div class="entry-description">${descriptionHtml}</div>
                 <div class="entry-date">${version.date || 'Date pending'}</div>
             `;
 
