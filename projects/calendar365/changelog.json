@@ -1,0 +1,28 @@
+{
+  "versions": [
+      {
+      "version": "2026+1.1",
+      "name": "1.18.x, 1.19.x, 1.20.x, 1.21.x",
+      "date": "December 31, 2025",
+      "download": "https://cdn.modrinth.com/data/tNrGF59b/versions/8LvWhI9b/calendar365_2026%2B1.1.jar",
+      "description": "Changed versioning",
+      "status": "stable"
+    },
+    {
+      "version": "1.1",
+      "name": "1.18.x, 1.19.x, 1.20.x, 1.21.x",
+      "date": "December 19, 2025",
+      "download": "https://cdn.modrinth.com/data/tNrGF59b/versions/Q3KJcKId/calendar365_1.1.jar",
+      "description": "Added compatibility with versions 1.18 - 1.19",
+      "status": "stable"
+    },
+    {
+      "version": "1.0",
+      "name": "1.20.x, 1.21.x",
+      "date": "November 25, 2025",
+      "download": "https://cdn.modrinth.com/data/tNrGF59b/versions/LdFSMJnQ/calendar365_1.0.jar",
+      "description": "First version",
+      "status": "stable"
+    }
+  ]
+}
