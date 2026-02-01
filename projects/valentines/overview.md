@@ -38,11 +38,11 @@ Section "**Gallery**"
 ```yaml
 # ╔════════════════════════════════════════════════════════════════════╗
 # ║                     VALENTINES PLUGIN CONFIG                       ║
-# ║                     Update: January 30, 2025                       ║
+# ║                     Update: February 2, 2025                       ║
 # ╚════════════════════════════════════════════════════════════════════╝
 
 # Internal version tracking - DO NOT CHANGE THIS VALUE
-config-version: "2026+1.0-dev.1"
+config-version: "2026+1.0-dev.2"
 
 # ╔════════════════════════════════════════════════════════════════════╗
 # ║                          GENERAL SETTINGS                          ║

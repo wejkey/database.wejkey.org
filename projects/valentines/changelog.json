@@ -1,6 +1,16 @@
 {
   "versions": [
     {
+      "version": "2026+1.0-dev.2",
+      "name": "1.19, 1.20.x, 1.21.x",
+      "date": "February 2, 2026",
+      "download": "https://cdn.modrinth.com/data/5JAz4ytr/versions/bwbyylK0/Valentines_2026%2B1.0-dev.2.jar",
+      "description": [
+        "Updated version checking"
+      ],
+      "status": "dev"
+    },
+    {
       "version": "2026+1.0-dev.1",
       "name": "1.19, 1.20.x, 1.21.x",
       "date": "January 30, 2026",
