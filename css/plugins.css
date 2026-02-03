@@ -72,7 +72,7 @@
     transition: all var(--transition);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .tab-button:hover {
@@ -144,7 +144,7 @@
     color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .markdown-content p {
@@ -196,7 +196,7 @@
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     border-bottom: 2px solid var(--primary);
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .markdown-content td {
@@ -225,7 +225,7 @@
 .markdown-content code {
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
     font-size: 0.875em;
     background: var(--surface-alt);
     color: var(--primary);

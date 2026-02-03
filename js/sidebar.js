@@ -32,7 +32,7 @@ const sidebarConfig = {
         }
     ],
     footer: {
-        text: '© 2025-2026 Wejkey. All rights reserved. (Version 2026+1.2.0)'
+        text: '© 2025-2026 Wejkey. All rights reserved. (Version 2026+1.2.1)'
     }
 };
 

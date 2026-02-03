@@ -73,7 +73,7 @@
     font-weight: 700;
     color: var(--text);
     letter-spacing: 0.02em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .sidebar-nav {
@@ -120,7 +120,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .nav-header:has(.nav-expand-icon) {
@@ -186,7 +186,7 @@
     color: var(--text-muted);
     text-align: center;
     font-size: 0.75rem;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .sidebar-footer a {

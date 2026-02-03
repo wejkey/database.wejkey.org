@@ -35,7 +35,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
@@ -110,7 +110,7 @@ body::before {
     font-size: 0.875rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .hero-section-enhanced {
@@ -172,7 +172,7 @@ body::before {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .hero-badge::before {
@@ -418,7 +418,7 @@ body::before {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .project-footer {
@@ -536,7 +536,7 @@ body::before {
     color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .markdown-body p {
@@ -594,7 +594,7 @@ body::before {
 .markdown-body code {
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
     font-size: 0.875em;
     background: var(--surface-alt);
     color: var(--primary);
@@ -650,7 +650,7 @@ body::before {
     z-index: 10;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .copy-code-btn:hover {
@@ -728,7 +728,7 @@ body::before {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     border-bottom: 2px solid var(--primary);
-    font-family: 'Monaco', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
 }
 
 .markdown-body td {
